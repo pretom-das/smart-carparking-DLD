@@ -1,0 +1,78 @@
+module Adder_7Seg_Display(
+    input [3:0] A1, B1,   // 4-bit inputs for first adder
+    input [3:0] A2, B2,   // 4-bit inputs for second adder
+    output [6:0] Display1, // 7-segment display output for first sum
+    output [6:0] Display2  // 7-segment display output for second sum
+);
+
+    wire [4:0] Sum1;  // 4-bit sum + carry for first adder
+    wire [4:0] Sum2;  // 4-bit sum + carry for second adder
+
+    // 4-bit Adder 1
+    assign Sum1 = A1 + B1;
+
+    // 4-bit Adder 2
+    assign Sum2 = A2 + B2;
+
+    // Instantiate 7-segment display drivers for sum outputs
+    SevenSegDriver SSD1 (.binary_in(Sum1[3:0]), .seg_out(Display1));
+    SevenSegDriver SSD2 (.binary_in(Sum2[3:0]), .seg_out(Display2));
+
+endmodule
+
+// 7-Segment Display Driver Module (BCD to 7-segment)
+module SevenSegDriver(
+    input [3:0] binary_in,
+    output reg [6:0] seg_out
+);
+    always @(*) begin
+        case(binary_in)
+            4'b0000: seg_out = 7'b1000000; // 0
+            4'b0001: seg_out = 7'b1111001; // 1
+            4'b0010: seg_out = 7'b0100100; // 2
+            4'b0011: seg_out = 7'b0110000; // 3
+            4'b0100: seg_out = 7'b0011001; // 4
+            4'b0101: seg_out = 7'b0010010; // 5
+            4'b0110: seg_out = 7'b0000010; // 6
+            4'b0111: seg_out = 7'b1111000; // 7
+            4'b1000: seg_out = 7'b0000000; // 8
+            4'b1001: seg_out = 7'b0010000; // 9
+            default: seg_out = 7'b1111111; // Error/Blank
+        endcase
+    end
+endmodule
+
+module Parking_System(
+    input entry,          // Car entry sensor
+    input exit,           // Car exit sensor
+    input clk,            // Clock input
+    output [6:0] car_count_display,  // 7-segment display for number of cars parked
+    output [6:0] space_count_display // 7-segment display for number of empty spaces
+);
+
+    reg [3:0] car_count;  // Number of cars inside (4-bit to hold values 0-8)
+    reg [3:0] empty_spaces; // Number of empty spaces (4-bit, since 8 spaces)
+    
+    // Max number of cars in the parking lot is 8
+    parameter MAX_CARS = 4'd8;
+
+    always @(posedge clk) begin
+        // Entry logic: increment car_count when a car enters if parking is not full
+        if (entry && car_count < MAX_CARS)
+            car_count <= car_count + 1;
+
+        // Exit logic: decrement car_count when a car exits if there are cars inside
+        if (exit && car_count > 0)
+            car_count <= car_count - 1;
+
+        // Calculate empty spaces
+        empty_spaces <= MAX_CARS - car_count;
+    end
+
+    // Instantiate 7-segment display drivers for car count and empty spaces
+    SevenSegDriver SSD1 (.binary_in(car_count), .seg_out(car_count_display));
+    SevenSegDriver SSD2 (.binary_in(empty_spaces), .seg_out(space_count_display));
+
+endmodule
+
+
