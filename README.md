@@ -31,7 +31,7 @@ Here are some screenshots of the project:
 ![Image Alt Text](https://github.com/pretom-das/smart-carparking-DLD/blob/450e3a017a9904aa4ecf64cd27ee84cda8d1f51d/SS/WhatsApp%20Image%202024-10-02%20at%2021.25.03_85f7abca.jpg)
 *Screenshot 3 Parctical circuit *
 
-![Image Alt Text]([https://github.com/pretom-das/loadflow-etap/blob/95570c22c2f21447941c41dda5089e3501731c96/SS/L-G%20fault.png](https://github.com/pretom-das/smart-carparking-DLD/blob/450e3a017a9904aa4ecf64cd27ee84cda8d1f51d/SS/final-look.JPG))
+![Image Alt Text](https://github.com/pretom-das/smart-carparking-DLD/blob/450e3a017a9904aa4ecf64cd27ee84cda8d1f51d/SS/final-look.JPG)
 *Screenshot 3 Final Look *
 
 ## Installation
