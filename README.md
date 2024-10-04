@@ -22,14 +22,17 @@ ensuring a seamless parking experience for drivers.
 ## Screenshots
 Here are some screenshots of the project:
 
-![Image Alt Text](SS/output.png)
-*Screenshot 1 Etap Simulation*
+![Image Alt Text](https://github.com/pretom-das/smart-carparking-DLD/blob/bc5eb1441fc38ae046ddc06a6ff2bbffe4eed119/SS/Main%20circuit.png)
+*Screenshot 1 Proteus Simulation*
 
-![Image Alt Text](SS/solved-capacitor.png)
-*Screenshot 2 Solving Unvervoltage using Capacitor Bank*
+![Image Alt Text](https://github.com/pretom-das/smart-carparking-DLD/blob/450e3a017a9904aa4ecf64cd27ee84cda8d1f51d/SS/arduino%20connection.png)
+*Screenshot 2 Arduino connection*
 
-![Image Alt Text](https://github.com/pretom-das/loadflow-etap/blob/95570c22c2f21447941c41dda5089e3501731c96/SS/L-G%20fault.png)
-*Screenshot 1 Fault Analysis*
+![Image Alt Text](https://github.com/pretom-das/smart-carparking-DLD/blob/450e3a017a9904aa4ecf64cd27ee84cda8d1f51d/SS/WhatsApp%20Image%202024-10-02%20at%2021.25.03_85f7abca.jpg)
+*Screenshot 3 Parctical circuit *
+
+![Image Alt Text]([https://github.com/pretom-das/loadflow-etap/blob/95570c22c2f21447941c41dda5089e3501731c96/SS/L-G%20fault.png](https://github.com/pretom-das/smart-carparking-DLD/blob/450e3a017a9904aa4ecf64cd27ee84cda8d1f51d/SS/final-look.JPG))
+*Screenshot 3 Final Look *
 
 ## Installation
 1. Clone the repository:  
